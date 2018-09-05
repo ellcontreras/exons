@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Obsinqsob01/comm/issues"
   },
-  "homepage": "https://github.com/Obsinqsob01/comm#readme"
+  "homepage": "https://github.com/Obsinqsob01/comm#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
