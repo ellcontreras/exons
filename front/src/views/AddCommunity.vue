@@ -1,0 +1,44 @@
+<template>
+    <div>
+        <div class="notification is-danger" v-if="error">
+            {{ error }}            
+        </div>
+        <div class="field">
+            <input type="text" v-model="title" class="input" placeholder="title">
+        </div>
+        <div class="fiel">
+            <textarea v-model="description" class="textarea" placeholder="description"></textarea>
+        </div>
+        <br>
+        <button @click="onClick()" class="button is-info">Subir</button>
+    </div>
+</template>
+
+<script>
+import axios from 'axios'
+
+export default {
+    name: 'AddCommunity',
+    data() {
+        return {
+            title: "",
+            description: "",
+            error: ""
+        }
+    },
+    methods: {
+        onClick() {
+            axios.post('http://localhost:8080/api/community/add', {
+                title: this.title,
+                description: this.description
+            }).then(res => {
+                this.$router.push('/');
+            }).catch(err => {
+                console.log(err);
+                this.error = "Ha ocurrido un error, intentalo después :("
+            })
+        }
+    }
+}
+</script>
+
