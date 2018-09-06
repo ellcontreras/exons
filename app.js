@@ -15,10 +15,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // Route declaration
-app.use('/api/community/', communityRouter);
+app.use('/api/community', communityRouter);
 
-app.listen(8080, () => {
-    console.log("The server is running on :8080");
-
-    // exec('browse http://localhost:8080');
-});
+module.exports = app;
