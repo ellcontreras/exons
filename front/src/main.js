@@ -5,6 +5,8 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+import 'bulma/css/bulma.min.css'
+
 new Vue({
   router,
   store,
