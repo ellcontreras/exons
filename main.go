@@ -1,9 +1,11 @@
 package main
 
 import (
+	"github.com/labstack/echo/middleware"
 	"comm/routes"
 
 	"github.com/labstack/echo"
+
 )
 
 var (
@@ -13,6 +15,17 @@ var (
 
 func main() {
 	Server = echo.New()
+
+	Server.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+	}))
+
+	Server.Use(middleware.LoggerWithConfig(
+		middleware.LoggerConfig{
+			Format: `{"time":"${time_rfc3339_nano}","host":"${host}","method":"${method}","uri":"${uri}","status":${status},`+
+			`"bytes_in":${bytes_in},` + `"bytes_out":${bytes_out}}` + "\n",
+		},
+	))
 
 	//Init the routes
 	routes.InitRoutes(Server)
