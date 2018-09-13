@@ -1,11 +1,9 @@
 package utils
 
-import "log"
-
 // CheckErr verify if exists an error in the var err
-func CheckErr(err error, msg string) {
+func CheckErr(err error) {
 	if err != nil {
-		log.Println(err, msg)
+		panic(err)
 	}
 }
 
