@@ -11,7 +11,6 @@ func InitRoutes(server *echo.Echo) {
 	//User routes
 	server.GET("/api/community/get/:id", actions.CommunityGetOne)
 	server.GET("/api/communnity/get/all", actions.CommunityGetAll)
-	server.PUT("/api/community/add", actions.CommunityAdd)
+	server.POST("/api/community/add", actions.CommunityAdd)
 	server.DELETE("/api/community/update", actions.CommunityUpdate)
 }
-
