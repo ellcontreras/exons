@@ -21,11 +21,10 @@ export default {
     },
     beforeMount() {
         axios.get(`http://localhost:8080/api/community/get/${this.$route.params.id}`).then(res => {
-            this.community = res.data.community;
+            this.community = res.data;
         }).catch(err => {
             console.log(err);
         })
     }
 }
 </script>
-
