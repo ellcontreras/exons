@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import AddCommunity from './views/AddCommunity.vue'
+import UpdateCommunity from './views/UpdateCommunity.vue'
 import Community from './views/Community.vue'
 
 Vue.use(Router)
@@ -20,6 +21,11 @@ export default new Router({
       path: '/add-community',
       name: 'add community',
       component: AddCommunity
+    },
+    {
+      path: '/community/:id/update',
+      name: 'update community',
+      component: UpdateCommunity
     },
     {
       path: '/community/:id',

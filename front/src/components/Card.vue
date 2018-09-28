@@ -5,7 +5,7 @@
                 <div class="card-header-title">{{ title }}</div>
             </div>
             <div class="card-content">
-                {{ description }}
+                {{ description.substring(0, 25) + '...' }}
             </div>
         </div>
     </router-link>
@@ -27,4 +27,3 @@ export default {
         margin-bottom: 1em;
     }
 </style>
-

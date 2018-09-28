@@ -6,6 +6,7 @@
         <p>
             {{ community.description }}
         </p>
+        <router-link :to="`${this.community._id}/update`">Actualizar</router-link>
     </div>
 </template>
 
