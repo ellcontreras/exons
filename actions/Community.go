@@ -9,6 +9,7 @@ import (
 
 	"comm/utils"
 	"comm/models"
+	"log"
 )
 
 var (
@@ -70,5 +71,19 @@ func CommunityAdd(ctx echo.Context) error {
 
 //CommunityPut ...
 func CommunityUpdate(ctx echo.Context) error {
-	return ctx.JSON(http.StatusOK, "Put Method")
+	community := models.Community{}
+
+	community.BindWithContext(ctx)
+
+
+	log.Println(community.ID)
+	
+	Connect()
+
+	err := collection.UpdateId(community.ID, community)
+	utils.CheckErr(err)
+
+	Disconect()
+
+	return ctx.JSON(http.StatusOK, community)
 }
