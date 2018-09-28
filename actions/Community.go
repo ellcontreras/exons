@@ -69,7 +69,7 @@ func CommunityAdd(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, community)
 }
 
-//CommunityPut ...
+//CommunityUpdate ...
 func CommunityUpdate(ctx echo.Context) error {
 	community := models.Community{}
 
@@ -86,4 +86,19 @@ func CommunityUpdate(ctx echo.Context) error {
 	Disconect()
 
 	return ctx.JSON(http.StatusOK, community)
+}
+
+// CommunityDelete ...
+func CommunityDelete(ctx echo.Context) error {
+	community := models.Community{}
+
+	community.BindWithContext(ctx)
+
+	Connect()
+
+	collection.RemoveId(community.ID)
+
+	Disconect()
+
+	return ctx.NoContent(http.StatusOK)
 }
