@@ -3,6 +3,9 @@
         <div class="notification is-danger" v-if="error">
             {{ error }}            
         </div>
+        <h1 class="title is-1 has-text-centered">
+            Agregar una comunidad
+        </h1>
         <div class="field">
             <input type="text" v-model="title" class="input" placeholder="title">
         </div>
@@ -41,4 +44,3 @@ export default {
     }
 }
 </script>
-
