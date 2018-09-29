@@ -1,7 +1,6 @@
 package actions
 
 import (
-	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 
 	"net/http"
@@ -11,23 +10,6 @@ import (
 	"comm/models"
 	"log"
 )
-
-var (
-	err error
-	session *mgo.Session
-	collection *mgo.Collection
-)
-
-func Connect() {
-	session, err = mgo.Dial("mongodb://localhost:27017/comm")
-	utils.CheckErr(err)
-
-	collection = session.DB("comm").C("communities")
-}
-
-func Disconect() {
-	session.Close()
-}
 
 //CommunityGet ...
 func CommunityGetOne(ctx echo.Context) error {
