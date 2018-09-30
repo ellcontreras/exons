@@ -12,7 +12,7 @@ import (
 	"log"
 )
 
-//CommunityGet ...
+// CommunityGetOne ...
 func CommunityGetOne(ctx echo.Context) error {
 	community := models.Community{}
 
@@ -24,6 +24,7 @@ func CommunityGetOne(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, community)
 }
 
+// CommunityGetAll ...
 func CommunityGetAll(ctx echo.Context) error {
 	var communities []models.Community
 
@@ -36,7 +37,7 @@ func CommunityGetAll(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, communities)
 }
 
-//CommunityPost ...
+// CommunityAdd ...
 func CommunityAdd(ctx echo.Context) error {
 	community := models.Community{}
 
