@@ -1,16 +1,19 @@
 <template>
-  <nav class="navbar is-link">
+  <nav class="navbar is-info">
     <div class="navbar-brand">
       <router-link to="/">
-        <h1 class="title is-1 has-text-white">
-          Comm
-        </h1>
+        <h2 class="subtitle is-2 has-text-white">
+          comm
+        </h2>
       </router-link>
     </div>
     <div class="navbar-menu">
       <div class="navbar-end">
         <router-link to="/add-community" class="has-text-white navbar-item">
           Agregar comunidad
+        </router-link>
+        <router-link to="/sign-up" class="has-text-white navbar-item">
+          Registrarme
         </router-link>
       </div>
     </div>
