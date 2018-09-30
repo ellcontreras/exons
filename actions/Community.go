@@ -4,10 +4,11 @@ import (
 	"gopkg.in/mgo.v2/bson"
 
 	"net/http"
+
 	"github.com/labstack/echo"
 
-	"comm/utils"
 	"comm/models"
+	"comm/utils"
 	"log"
 )
 
@@ -17,7 +18,7 @@ func CommunityGetOne(ctx echo.Context) error {
 
 	Connect()
 
-	collection.FindId(bson.ObjectIdHex(ctx.Param("id"))).One(&community)
+	collectionCommunities.FindId(bson.ObjectIdHex(ctx.Param("id"))).One(&community)
 
 	Disconect()
 	return ctx.JSON(http.StatusOK, community)
@@ -25,10 +26,10 @@ func CommunityGetOne(ctx echo.Context) error {
 
 func CommunityGetAll(ctx echo.Context) error {
 	var communities []models.Community
-	
+
 	Connect()
 
-	err := collection.Find(nil).Sort("-_id").All(&communities)
+	err := collectionCommunities.Find(nil).Sort("-_id").All(&communities)
 	utils.CheckErr(err)
 
 	Disconect()
@@ -43,9 +44,9 @@ func CommunityAdd(ctx echo.Context) error {
 
 	Connect()
 
-	err = collection.Insert(community)
+	err = collectionCommunities.Insert(community)
 	utils.CheckErr(err)
-	
+
 	Disconect()
 
 	return ctx.JSON(http.StatusOK, community)
@@ -57,12 +58,11 @@ func CommunityUpdate(ctx echo.Context) error {
 
 	community.BindWithContext(ctx)
 
-
 	log.Println(community.ID)
-	
+
 	Connect()
 
-	err := collection.UpdateId(community.ID, community)
+	err := collectionCommunities.UpdateId(community.ID, community)
 	utils.CheckErr(err)
 
 	Disconect()
@@ -78,7 +78,7 @@ func CommunityDelete(ctx echo.Context) error {
 
 	Connect()
 
-	collection.RemoveId(community.ID)
+	collectionCommunities.RemoveId(community.ID)
 
 	Disconect()
 
