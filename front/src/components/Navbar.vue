@@ -15,6 +15,9 @@
         <router-link to="/sign-up" class="has-text-white navbar-item">
           Registrarme
         </router-link>
+        <router-link to="/login" class="has-text-white navbar-item">
+          Iniciar Sesión
+        </router-link>
       </div>
     </div>
   </nav>
