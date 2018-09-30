@@ -23,4 +23,7 @@ func InitRoutes(server *echo.Echo) {
 	// Community routes public
 	server.GET("/api/community/get/:id", actions.CommunityGetOne)
 	server.GET("/api/community/get/all", actions.CommunityGetAll)
+
+	// User routes public
+	server.POST("/api/user/add", actions.UserAdd)
 }
