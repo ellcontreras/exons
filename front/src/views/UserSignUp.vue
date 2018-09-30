@@ -60,7 +60,7 @@ export default {
                     email: this.email,
                     password: this.password
                 }).then(res => {
-                    console.log(res);
+                    this.$router.push('/login');
                 }).catch(error => {
                     if (error.response.status === 409) {
                         this.error_response = "Ese email o username ya se encuentra registrado";
