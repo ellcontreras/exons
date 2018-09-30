@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import AddCommunity from './views/AddCommunity.vue'
 import UpdateCommunity from './views/UpdateCommunity.vue'
 import Community from './views/Community.vue'
+import UserSignUp from './views/UserSignUp.vue'
 
 Vue.use(Router)
     
@@ -31,6 +32,11 @@ export default new Router({
       path: '/community/:id',
       name: 'community',
       component: Community
+    },
+    {
+      path: '/sign-up',
+      name: 'user sign up',
+      component: UserSignUp
     }
   ]
 })
