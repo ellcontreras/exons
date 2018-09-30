@@ -34,6 +34,11 @@ export default {
             error_response: ""
         }
     },
+    beforeMount() {
+        if (localStorage.getItem("user")) {
+            this.$router.push('/');
+        }
+    },
     methods: {    
         handleClick() {
             if (this.handleAllFilled) {
@@ -46,7 +51,7 @@ export default {
                     }));
 
                     this.$router.push('/');
-                    
+
                 }).catch(error => {
                     if (error.response.status === 401) {
                         this.error_response = "Los datos ingresados no son correctos, revisalos por favor";

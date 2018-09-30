@@ -51,6 +51,11 @@ export default {
             error_response: ""
         }
     },
+    beforeMount() {
+        if (localStorage.getItem("user")) {
+            this.$router.push('/');
+        }
+    },
     methods: {    
         handleClick() {
             if (this.handleAllFilled) {
