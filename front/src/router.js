@@ -5,6 +5,7 @@ import AddCommunity from './views/AddCommunity.vue'
 import UpdateCommunity from './views/UpdateCommunity.vue'
 import Community from './views/Community.vue'
 import UserSignUp from './views/UserSignUp.vue'
+import UserLogin from './views/UserLogin.vue'
 
 Vue.use(Router)
     
@@ -37,6 +38,11 @@ export default new Router({
       path: '/sign-up',
       name: 'user sign up',
       component: UserSignUp
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: UserLogin
     }
   ]
 })
