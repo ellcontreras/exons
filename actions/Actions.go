@@ -7,16 +7,18 @@ import (
 )
 
 var (
-	err error
-	session *mgo.Session
-	collection *mgo.Collection
+	err                   error
+	session               *mgo.Session
+	collectionCommunities *mgo.Collection
+	collectionUsers       *mgo.Collection
 )
 
 func Connect() {
 	session, err = mgo.Dial("mongodb://localhost:27017/comm")
 	utils.CheckErr(err)
 
-	collection = session.DB("comm").C("communities")
+	collectionCommunities = session.DB("comm").C("communities")
+	collectionUsers = session.DB("comm").C("users")
 }
 
 func Disconect() {
