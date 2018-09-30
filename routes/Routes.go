@@ -11,7 +11,7 @@ import (
 //InitRoutes the routes for the server
 func InitRoutes(server *echo.Echo) {
 	api := server.Group("/api", middleware.JWTWithConfig(middleware.JWTConfig{
-		Claims: &utils.JWTCustomClaims{},
+		Claims:     &utils.JWTCustomClaims{},
 		SigningKey: []byte("secret"),
 	}))
 
@@ -26,4 +26,5 @@ func InitRoutes(server *echo.Echo) {
 
 	// User routes public
 	server.POST("/api/user/add", actions.UserAdd)
+	server.POST("/api/user/login", actions.UserLogin)
 }
