@@ -3,7 +3,7 @@ package actions
 import (
 	"gopkg.in/mgo.v2"
 
-	"comm/utils"
+	"exons/utils"
 )
 
 var (
@@ -14,11 +14,11 @@ var (
 )
 
 func Connect() {
-	session, err = mgo.Dial("mongodb://localhost:27017/comm")
+	session, err = mgo.Dial("mongodb://localhost:27017/exons")
 	utils.CheckErr(err)
 
-	collectionCommunities = session.DB("comm").C("communities")
-	collectionUsers = session.DB("comm").C("users")
+	collectionCommunities = session.DB("exons").C("comminities")
+	collectionUsers = session.DB("exons").C("users")
 }
 
 func Disconect() {

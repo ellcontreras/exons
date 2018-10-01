@@ -1,11 +1,11 @@
 <template>
     <div>
         <h1 class="title is-1 has-text-centered">
-            Communities
+            exonsunities
         </h1>
-        <Card v-for="community in communities" :key="community._id" 
-            :id="community._id"
-            :title="community.title" :description="community.description"/>
+        <Card v-for="Community in exonsunities" :key="Community._id" 
+            :id="Community._id"
+            :title="Community.title" :description="Community.description"/>
     </div>
 </template>
 
@@ -18,12 +18,12 @@ export default {
     components: { Card },
     data() {
         return {
-            communities: []
+            exonsunities: []
         }
     },
     beforeMount() {
-        axios.get('http://localhost:8080/api/community/get/all').then(res => {
-            this.communities = res.data;
+        axios.get('http://localhost:8080/api/Community/get/all').then(res => {
+            this.exonsunities = res.data;
         }).catch(err => {
             console.log(err);
         });

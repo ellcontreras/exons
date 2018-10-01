@@ -1,7 +1,7 @@
 package DB
 
 import (
-	"comm/utils"
+	"exons/utils"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -14,7 +14,7 @@ var (
 
 //Open return a dastabase instance
 func Open() *gorm.DB {
-	db, err = gorm.Open("mysql", "root:root@/comm")
+	db, err = gorm.Open("mysql", "root:root@/exons")
 	utils.CheckErr(err, "No se puede abrir una conexión")
 
 	return db

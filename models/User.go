@@ -4,7 +4,7 @@ import (
 	"github.com/labstack/echo"
 
 	"gopkg.in/mgo.v2/bson"
-	"comm/utils"
+	"exons/utils"
 )
 
 type User struct {

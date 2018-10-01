@@ -3,13 +3,13 @@
     <div class="navbar-brand">
       <router-link to="/">
         <h2 class="subtitle is-2 has-text-white">
-          comm
+          exons
         </h2>
       </router-link>
     </div>
     <div class="navbar-menu">
       <div class="navbar-end">
-        <router-link to="/add-community" class="has-text-white navbar-item">
+        <router-link to="/add-Community" class="has-text-white navbar-item">
           Agregar comunidad
         </router-link>
         <router-link to="/sign-up" class="has-text-white navbar-item">

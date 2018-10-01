@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="`/community/${id}`">
+    <router-link :to="`/Community/${id}`">
         <div class="card">
             <div class="card-header">
                 <div class="card-header-title">{{ title }}</div>

@@ -21,7 +21,7 @@
 import axios from 'axios'
 
 export default {
-    name: 'AddCommunity',
+    name: 'Addexonsunity',
     data() {
         return {
             title: "",
@@ -31,10 +31,19 @@ export default {
     },
     methods: {
         onClick() {
-            axios.post('http://localhost:8080/api/community/add', {
+		var ls = localStorage.getItem('user');
+		ls = JSON.parse(ls);
+
+		let config = {
+		  headers: {
+		    Authorization: ls.token
+		  }
+		};
+
+            axios.post('http://localhost:8080/api/Community/add', {
                 title: this.title,
                 description: this.description
-            }).then(res => {
+            }, config).then(res => {
                 this.$router.push('/');
             }).catch(err => {
                 console.log(err);

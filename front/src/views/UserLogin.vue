@@ -52,6 +52,8 @@ export default {
 
                     this.$router.push('/');
 
+                    this.$root.$emit("send", "hola");
+
                 }).catch(error => {
                     if (error.response.status === 401) {
                         this.error_response = "Los datos ingresados no son correctos, revisalos por favor";

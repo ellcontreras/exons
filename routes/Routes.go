@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"comm/actions"
-	"comm/utils"
+	"exons/actions"
+	"exons/utils"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -16,13 +16,13 @@ func InitRoutes(server *echo.Echo) {
 	}))
 
 	// Community routes for api
-	api.POST("/api/community/add", actions.CommunityAdd)
-	api.PUT("/api/community/update", actions.CommunityUpdate)
-	api.DELETE("/api/community/delete", actions.CommunityDelete)
+	api.POST("/api/Community/add", actions.CommunityAdd)
+	api.PUT("/api/Community/update", actions.CommunityUpdate)
+	api.DELETE("/api/Community/delete", actions.CommunityDelete)
 
 	// Community routes public
-	server.GET("/api/community/get/:id", actions.CommunityGetOne)
-	server.GET("/api/community/get/all", actions.CommunityGetAll)
+	server.GET("/api/Community/get/:id", actions.CommunityGetOne)
+	server.GET("/api/Community/get/all", actions.CommunityGetAll)
 
 	// User routes public
 	server.POST("/api/user/add", actions.UserAdd)

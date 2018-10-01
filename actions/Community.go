@@ -7,21 +7,21 @@ import (
 
 	"github.com/labstack/echo"
 
-	"comm/models"
-	"comm/utils"
+	"exons/models"
+	"exons/utils"
 	"log"
 )
 
 // CommunityGetOne ...
 func CommunityGetOne(ctx echo.Context) error {
-	community := models.Community{}
+	Community := models.Community{}
 
 	Connect()
 
-	collectionCommunities.FindId(bson.ObjectIdHex(ctx.Param("id"))).One(&community)
+	collectionCommunities.FindId(bson.ObjectIdHex(ctx.Param("id"))).One(&Community)
 
 	Disconect()
-	return ctx.JSON(http.StatusOK, community)
+	return ctx.JSON(http.StatusOK, Community)
 }
 
 // CommunityGetAll ...
@@ -39,47 +39,47 @@ func CommunityGetAll(ctx echo.Context) error {
 
 // CommunityAdd ...
 func CommunityAdd(ctx echo.Context) error {
-	community := models.Community{}
+	Community := models.Community{}
 
-	community.BindWithContext(ctx)
+	Community.BindWithContext(ctx)
 
 	Connect()
 
-	err = collectionCommunities.Insert(community)
+	err = collectionCommunities.Insert(Community)
 	utils.CheckErr(err)
 
 	Disconect()
 
-	return ctx.JSON(http.StatusOK, community)
+	return ctx.JSON(http.StatusOK, Community)
 }
 
 //CommunityUpdate ...
 func CommunityUpdate(ctx echo.Context) error {
-	community := models.Community{}
+	Community := models.Community{}
 
-	community.BindWithContext(ctx)
+	Community.BindWithContext(ctx)
 
-	log.Println(community.ID)
+	log.Println(Community.ID)
 
 	Connect()
 
-	err := collectionCommunities.UpdateId(community.ID, community)
+	err := collectionCommunities.UpdateId(Community.ID, Community)
 	utils.CheckErr(err)
 
 	Disconect()
 
-	return ctx.JSON(http.StatusOK, community)
+	return ctx.JSON(http.StatusOK, Community)
 }
 
 // CommunityDelete ...
 func CommunityDelete(ctx echo.Context) error {
-	community := models.Community{}
+	Community := models.Community{}
 
-	community.BindWithContext(ctx)
+	Community.BindWithContext(ctx)
 
 	Connect()
 
-	collectionCommunities.RemoveId(community.ID)
+	collectionCommunities.RemoveId(Community.ID)
 
 	Disconect()
 

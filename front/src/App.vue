@@ -11,7 +11,12 @@
 import Navbar from '@/components/Navbar'
 
 export default {
-  components: {Navbar}
+  components: {Navbar},
+  created() {
+    this.$on("send", (txt) => {
+      console.log(txt);
+    })
+  }
 }
 </script>
 
