@@ -1,2 +1,2 @@
 # exons
-Plattform to find communities to colaborate
+Plattform to find exonsunities to colaborate

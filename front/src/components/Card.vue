@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="`/community/${id}`">
+    <router-link :to="`/exonsunity/${id}`">
         <div class="card">
             <div class="card-header">
                 <div class="card-header-title">{{ title }}</div>

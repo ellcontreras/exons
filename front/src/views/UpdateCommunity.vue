@@ -7,10 +7,10 @@
             {{ error }}            
         </div>
         <div class="field">
-            <input type="text" v-model="community.title" class="input" placeholder="title">
+            <input type="text" v-model="exonsunity.title" class="input" placeholder="title">
         </div>
         <div class="fiel">
-            <textarea v-model="community.description" class="textarea" placeholder="description"></textarea>
+            <textarea v-model="exonsunity.description" class="textarea" placeholder="description"></textarea>
         </div>
         <br>
         <button @click="onClick()" class="button is-info">Actualizar</button>
@@ -21,28 +21,28 @@
 import axios from 'axios'
 
 export default {
-    name: 'UpdateCommunity',
+    name: 'Updateexonsunity',
     data() {
         return {
-            community: [],
+            exonsunity: [],
             error: ""
         }
     },
     beforeMount() {
-        axios.get(`http://localhost:8080/api/community/get/${this.$route.params.id}`).then(res => {
-            this.community = res.data;
+        axios.get(`http://localhost:8080/api/exonsunity/get/${this.$route.params.id}`).then(res => {
+            this.exonsunity = res.data;
         }).catch(err => {
             console.log(err);
         })
     },
     methods: {
         onClick() {
-            axios.put('http://localhost:8080/api/community/update', {
-                _id: this.community._id,
-                title: this.community.title,
-                description: this.community.description
+            axios.put('http://localhost:8080/api/exonsunity/update', {
+                _id: this.exonsunity._id,
+                title: this.exonsunity.title,
+                description: this.exonsunity.description
             }).then(res => {
-                this.$router.push(`/community/${this.$route.params.id}`);
+                this.$router.push(`/exonsunity/${this.$route.params.id}`);
             }).catch(err => {
                 console.log(err);
                 this.error = "Ha ocurrido un error, intentalo después :("

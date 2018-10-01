@@ -9,8 +9,8 @@ import (
 	"github.com/labstack/echo"
 	"gopkg.in/mgo.v2/bson"
 
-	"comm/models"
-	"comm/utils"
+	"exons/models"
+	"exons/utils"
 )
 
 // UserAdd ...

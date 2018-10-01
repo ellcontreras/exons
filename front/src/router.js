@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import AddCommunity from './views/AddCommunity.vue'
-import UpdateCommunity from './views/UpdateCommunity.vue'
-import Community from './views/Community.vue'
+import Addexonsunity from './views/Addexonsunity.vue'
+import Updateexonsunity from './views/Updateexonsunity.vue'
+import exonsunity from './views/exonsunity.vue'
 import UserSignUp from './views/UserSignUp.vue'
 import UserLogin from './views/UserLogin.vue'
 
@@ -20,19 +20,19 @@ export default new Router({
       component: Home
     },
     {
-      path: '/add-community',
-      name: 'add community',
-      component: AddCommunity
+      path: '/add-exonsunity',
+      name: 'add exonsunity',
+      component: Addexonsunity
     },
     {
-      path: '/community/:id/update',
-      name: 'update community',
-      component: UpdateCommunity
+      path: '/exonsunity/:id/update',
+      name: 'update exonsunity',
+      component: Updateexonsunity
     },
     {
-      path: '/community/:id',
-      name: 'community',
-      component: Community
+      path: '/exonsunity/:id',
+      name: 'exonsunity',
+      component: exonsunity
     },
     {
       path: '/sign-up',
