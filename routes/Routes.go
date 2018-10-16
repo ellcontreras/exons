@@ -16,9 +16,9 @@ func InitRoutes(server *echo.Echo) {
 	}))
 
 	// Community routes for api
-	api.POST("/api/Community/add", actions.CommunityAdd)
-	api.PUT("/api/Community/update", actions.CommunityUpdate)
-	api.DELETE("/api/Community/delete", actions.CommunityDelete)
+	api.POST("/Community/add", actions.CommunityAdd)
+	api.PUT("/Community/update", actions.CommunityUpdate)
+	api.DELETE("/Community/delete", actions.CommunityDelete)
 
 	// Community routes public
 	server.GET("/api/Community/get/:id", actions.CommunityGetOne)
