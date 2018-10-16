@@ -4,11 +4,11 @@ import (
 	"github.com/dgrijalva/jwt-go"
 )
 
-// JWTCustomClaims
+// JWTCustomClaims ...
 type JWTCustomClaims struct {
-	Name  string `json:"name"`
-	Username string   `json:"username"`
-	Email string `json:"email"`
+	Name     string `json:"name"`
+	Username string `json:"username"`
+	Email    string `json:"email"`
 	jwt.StandardClaims
 }
 
