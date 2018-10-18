@@ -12,7 +12,6 @@ import (
 	"log"
 )
 
-<<<<<<< HEAD
 // CommunityGetOne ...
 func CommunityGetOne(ctx echo.Context) error {
 	Community := models.Community{}
@@ -23,34 +22,21 @@ func CommunityGetOne(ctx echo.Context) error {
 
 	Disconect()
 	return ctx.JSON(http.StatusOK, Community)
-=======
-// exonsunityGetOne ...
-func exonsunityGetOne(ctx echo.Context) error {
-	exonsunity := models.exonsunity{}
-
-	Connect()
-
-	collectionexonsunities.FindId(bson.ObjectIdHex(ctx.Param("id"))).One(&exonsunity)
-
-	Disconect()
-	return ctx.JSON(http.StatusOK, exonsunity)
->>>>>>> 7ffc66964085de8bd601e8428984ada54100d2de
 }
 
-// exonsunityGetAll ...
-func exonsunityGetAll(ctx echo.Context) error {
-	var exonsunities []models.exonsunity
+// CommunityGetAll ...
+func CommunityGetAll(ctx echo.Context) error {
+	var communities []models.Community
 
 	Connect()
 
-	err := collectionexonsunities.Find(nil).Sort("-_id").All(&exonsunities)
+	err := collectionCommunities.Find(nil).Sort("-_id").All(&communities)
 	utils.CheckErr(err)
 
 	Disconect()
-	return ctx.JSON(http.StatusOK, exonsunities)
+	return ctx.JSON(http.StatusOK, communities)
 }
 
-<<<<<<< HEAD
 // CommunityAdd ...
 func CommunityAdd(ctx echo.Context) error {
 	Community := models.Community{}
@@ -60,22 +46,10 @@ func CommunityAdd(ctx echo.Context) error {
 	Connect()
 
 	err = collectionCommunities.Insert(Community)
-=======
-// exonsunityAdd ...
-func exonsunityAdd(ctx echo.Context) error {
-	exonsunity := models.exonsunity{}
-
-	exonsunity.BindWithContext(ctx)
-
-	Connect()
-
-	err = collectionexonsunities.Insert(exonsunity)
->>>>>>> 7ffc66964085de8bd601e8428984ada54100d2de
 	utils.CheckErr(err)
 
 	Disconect()
 
-<<<<<<< HEAD
 	return ctx.JSON(http.StatusOK, Community)
 }
 
@@ -90,27 +64,10 @@ func CommunityUpdate(ctx echo.Context) error {
 	Connect()
 
 	err := collectionCommunities.UpdateId(Community.ID, Community)
-=======
-	return ctx.JSON(http.StatusOK, exonsunity)
-}
-
-//exonsunityUpdate ...
-func exonsunityUpdate(ctx echo.Context) error {
-	exonsunity := models.exonsunity{}
-
-	exonsunity.BindWithContext(ctx)
-
-	log.Println(exonsunity.ID)
-
-	Connect()
-
-	err := collectionexonsunities.UpdateId(exonsunity.ID, exonsunity)
->>>>>>> 7ffc66964085de8bd601e8428984ada54100d2de
 	utils.CheckErr(err)
 
 	Disconect()
 
-<<<<<<< HEAD
 	return ctx.JSON(http.StatusOK, Community)
 }
 
@@ -123,20 +80,6 @@ func CommunityDelete(ctx echo.Context) error {
 	Connect()
 
 	collectionCommunities.RemoveId(Community.ID)
-=======
-	return ctx.JSON(http.StatusOK, exonsunity)
-}
-
-// exonsunityDelete ...
-func exonsunityDelete(ctx echo.Context) error {
-	exonsunity := models.exonsunity{}
-
-	exonsunity.BindWithContext(ctx)
-
-	Connect()
-
-	collectionexonsunities.RemoveId(exonsunity.ID)
->>>>>>> 7ffc66964085de8bd601e8428984ada54100d2de
 
 	Disconect()
 
