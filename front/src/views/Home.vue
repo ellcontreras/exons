@@ -22,7 +22,7 @@ export default {
         }
     },
     beforeMount() {
-        axios.get('http://localhost:8080/api/Community/get/all').then(res => {
+        axios.get('http://localhost:8080/api/community/get/all').then(res => {
             this.exonsunities = res.data;
         }).catch(err => {
             console.log(err);
