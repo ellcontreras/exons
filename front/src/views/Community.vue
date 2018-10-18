@@ -28,8 +28,6 @@ export default {
     beforeMount() {
         axios.get(`http://localhost:8080/api/Community/get/${this.$route.params.id}`).then(res => {
             this.Community = res.data;
-        axios.get(`http://localhost:8080/api/exonsunity/get/${this.$route.params.id}`).then(res => {
-            this.exonsunity = res.data;
         }).catch(err => {
             console.log(err);
         });
@@ -53,6 +51,6 @@ export default {
                 this.error = "Ocurrió un error al tratar de eliminar esta comunidad";
             });
         }
-    }
+    },
 }
 </script>
