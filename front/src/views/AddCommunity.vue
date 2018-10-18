@@ -21,7 +21,7 @@
 import axios from 'axios'
 
 export default {
-    name: 'AddCommunity',
+    name: 'Addexonsunity',
     data() {
         return {
             title: "",

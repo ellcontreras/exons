@@ -18,7 +18,7 @@
 import axios from 'axios'
 
 export default {
-    name: 'Community',
+    name: 'exonsunity',
     data() {
         return {
             Community: [],
@@ -28,9 +28,11 @@ export default {
     beforeMount() {
         axios.get(`http://localhost:8080/api/Community/get/${this.$route.params.id}`).then(res => {
             this.Community = res.data;
+        axios.get(`http://localhost:8080/api/exonsunity/get/${this.$route.params.id}`).then(res => {
+            this.exonsunity = res.data;
         }).catch(err => {
             console.log(err);
-        })
+        });
     },
     methods: {
         clickDelete() {
