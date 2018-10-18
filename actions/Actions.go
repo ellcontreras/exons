@@ -17,7 +17,7 @@ func Connect() {
 	session, err = mgo.Dial("mongodb://localhost:27017/exons")
 	utils.CheckErr(err)
 
-	collectionCommunities = session.DB("exons").C("comminities")
+	collectionCommunities = session.DB("exons").C("communities")
 	collectionUsers = session.DB("exons").C("users")
 }
 
