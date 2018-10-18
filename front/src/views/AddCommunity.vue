@@ -21,7 +21,7 @@
 import axios from 'axios'
 
 export default {
-    name: 'Addexonsunity',
+    name: 'AddCommunity',
     data() {
         return {
             title: "",
@@ -31,22 +31,22 @@ export default {
     },
     methods: {
         onClick() {
-		var ls = localStorage.getItem('user');
-		ls = JSON.parse(ls);
+            var ls = localStorage.getItem('user');
+            ls = JSON.parse(ls);
 
-		let config = {
-		  headers: {
-		    Authorization: ls.token
-		  }
-		};
+            let config = {
+                headers: {
+                    Authorization: `Bearer ${ls.token}`
+                }
+            };
 
-            axios.post('http://localhost:8080/api/Community/add', {
+            axios.post('http://localhost:8080/api/community/add', {
                 title: this.title,
                 description: this.description
             }, config).then(res => {
                 this.$router.push('/');
             }).catch(err => {
-                console.log(err);
+                console.log(err.response);
                 this.error = "Ha ocurrido un error, intentalo después :("
             })
         }

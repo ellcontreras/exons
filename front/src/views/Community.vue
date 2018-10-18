@@ -34,9 +34,17 @@ export default {
     },
     methods: {
         clickDelete() {
-            axios.delete("http://localhost:8080/api/Community/delete", {data: {
-                _id: this.$route.params.id
-            }}).then(res => {
+            var ls = localStorage.getItem('user');
+            ls = JSON.parse(ls);
+            
+            axios.delete("http://localhost:8080/api/community/delete", {
+                data: {
+                    _id: this.$route.params.id
+                },
+                headers: {
+                    Authorization: `Bearer ${ls.token}`
+                }
+            }).then(res => {
                 this.$router.push('/');
             }).catch(error => {
                 console.log(error);

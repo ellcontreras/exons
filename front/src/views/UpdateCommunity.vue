@@ -21,7 +21,7 @@
 import axios from 'axios'
 
 export default {
-    name: 'Updateexonsunity',
+    name: 'UpdateCommunity',
     data() {
         return {
             Community: [],
@@ -37,14 +37,23 @@ export default {
     },
     methods: {
         onClick() {
-            axios.put('http://localhost:8080/api/Community/update', {
+            var ls = localStorage.getItem('user');
+            ls = JSON.parse(ls);
+
+            let config = {
+                headers: {
+                    Authorization: `Bearer ${ls.token}`
+                }
+            };
+
+            axios.put('http://localhost:8080/api/community/update', {
                 _id: this.Community._id,
                 title: this.Community.title,
                 description: this.Community.description
-            }).then(res => {
+            }, config).then(res => {
                 this.$router.push(`/Community/${this.$route.params.id}`);
             }).catch(err => {
-                console.log(err);
+                console.log(err.response);
                 this.error = "Ha ocurrido un error, intentalo después :("
             })
         }
