@@ -6,6 +6,7 @@ Take a look at this small guide if you have trouble:
 * Fork this repository
 * Clone it
 * Make the changes that are required
+  * Add yourself to CONTRIBUTORS.md
 * Create a pull request
 
 You can find more detailed information here:
