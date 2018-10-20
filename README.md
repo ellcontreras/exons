@@ -1,7 +1,8 @@
 # exons
 Platform to find communities to collaborate
 
-## Folder Structure
+##Folder Structure
+
      .
     ├──actions
     ├──front
