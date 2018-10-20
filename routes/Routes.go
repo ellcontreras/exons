@@ -21,8 +21,8 @@ func InitRoutes(server *echo.Echo) {
 	api.DELETE("/community/delete", actions.CommunityDelete)
 
 	// exonsunity routes public
-	server.GET("/api/exonsunity/get/:id", actions.CommunityGetOne)
-	server.GET("/api/exonsunity/get/all", actions.CommunityGetAll)
+	server.GET("/api/community/get/:id", actions.CommunityGetOne)
+	server.GET("/api/community/get/all", actions.CommunityGetAll)
 
 	// User routes public
 	server.POST("/api/user/add", actions.UserAdd)
