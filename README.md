@@ -12,5 +12,5 @@ Platform to find communities to collaborate
     |       ├──components
     |       └──views
     ├──models
-    ├──models
+    ├──routes
     └──utils
