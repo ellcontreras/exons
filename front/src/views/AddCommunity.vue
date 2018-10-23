@@ -29,9 +29,14 @@ export default {
             error: ""
         }
     },
+    beforeMount() {
+        if (!localStorage.getItem("user")) {
+            this.$router.push('/');
+        }
+    },
     methods: {
         onClick() {
-            var ls = localStorage.getItem('user');
+            var ls = localStorage.getItem('token');
             ls = JSON.parse(ls);
 
             let config = {
