@@ -2,13 +2,15 @@ package utils
 
 import (
 	"github.com/dgrijalva/jwt-go"
+	"gopkg.in/mgo.v2/bson"
 )
 
 // JWTCustomClaims ...
 type JWTCustomClaims struct {
-	Name     string `json:"name"`
-	Username string `json:"username"`
-	Email    string `json:"email"`
+	ID       bson.ObjectId `json:"_id"`
+	Name     string        `json:"name"`
+	Username string        `json:"username"`
+	Email    string        `json:"email"`
 	jwt.StandardClaims
 }
 
