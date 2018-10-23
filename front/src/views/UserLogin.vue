@@ -46,13 +46,15 @@ export default {
                     email: this.email,
                     password: this.password
                 }).then(res => {
-                    localStorage.setItem("user", JSON.stringify({
+                    localStorage.setItem("token", JSON.stringify({
                         token: res.data.token
                     }));
 
-                    this.$router.push('/');
+                    localStorage.setItem("user", JSON.stringify({
+                        user: res.data.user
+                    }));
 
-                    this.$root.$emit("send", "hola");
+                    window.location.href = '/';
 
                 }).catch(error => {
                     if (error.response.status === 401) {
