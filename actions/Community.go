@@ -5,11 +5,11 @@ import (
 
 	"net/http"
 
+	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
 
 	"exons/models"
 	"exons/utils"
-	"log"
 )
 
 // CommunityGetOne ...
@@ -43,6 +43,12 @@ func CommunityAdd(ctx echo.Context) error {
 
 	Community.BindWithContext(ctx)
 
+	user := ctx.Get("user").(*jwt.Token)
+	claims := user.Claims.(*utils.JWTCustomClaims)
+	_id := claims.ID
+
+	Community.User = _id
+
 	Connect()
 
 	err = collectionCommunities.Insert(Community)
@@ -58,8 +64,6 @@ func CommunityUpdate(ctx echo.Context) error {
 	Community := models.Community{}
 
 	Community.BindWithContext(ctx)
-
-	log.Println(Community.ID)
 
 	Connect()
 
