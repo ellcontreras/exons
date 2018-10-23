@@ -61,6 +61,7 @@ func UserLogin(ctx echo.Context) error {
 
 	if len(userDB.Name) > 0 {
 		claims := &utils.JWTCustomClaims{
+			ID:       userDB.ID,
 			Name:     userDB.Name,
 			Email:    userDB.Email,
 			Username: userDB.Username,
@@ -76,6 +77,7 @@ func UserLogin(ctx echo.Context) error {
 
 		return ctx.JSON(http.StatusOK, echo.Map{
 			"token": t,
+			"user":  userDB,
 		})
 	}
 
