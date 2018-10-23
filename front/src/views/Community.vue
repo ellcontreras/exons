@@ -9,8 +9,10 @@
         <p>
             {{ Community.description }}
         </p>
-        <router-link :to="`${this.Community._id}/update`">Actualizar</router-link>
-        <button @click="clickDelete()" class="button is-danger">Borrar</button>
+        <div v-if="userLoged">
+            <router-link :to="`${this.Community._id}/update`">Actualizar</router-link>
+            <button @click="clickDelete()" class="button is-danger">Borrar</button>
+        </div>
     </div>
 </template>
 
@@ -22,19 +24,26 @@ export default {
     data() {
         return {
             Community: [],
-            error: ""
+            error: "",
+            userLoged: false
         }
     },
     beforeMount() {
         axios.get(`http://localhost:8080/api/community/get/${this.$route.params.id}`).then(res => {
             this.Community = res.data;
+
+            let user = JSON.parse(localStorage.getItem("user")).user;
+
+            if (user._id === this.Community.user) {
+                this.userLoged = true;
+            }
         }).catch(err => {
             console.log(err.response);
         });
     },
     methods: {
         clickDelete() {
-            var ls = localStorage.getItem('user');
+            var ls = localStorage.getItem('token');
             ls = JSON.parse(ls);
             
             axios.delete("http://localhost:8080/api/community/delete", {
