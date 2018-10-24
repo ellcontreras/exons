@@ -37,6 +37,22 @@ func CommunityGetAll(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, communities)
 }
 
+// CommunityGetAllUser ...
+func CommunityGetAllUser(ctx echo.Context) error {
+	var communities []models.Community
+
+	Connect()
+
+	err := collectionCommunities.Find(bson.M{
+		"user": bson.ObjectIdHex(ctx.Param("id")),
+	}).Sort("-_id").All(&communities)
+	utils.CheckErr(err)
+
+	Disconect()
+
+	return ctx.JSON(http.StatusOK, communities)
+}
+
 // CommunityAdd ...
 func CommunityAdd(ctx echo.Context) error {
 	Community := models.Community{}

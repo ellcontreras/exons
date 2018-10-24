@@ -19,7 +19,7 @@
     </div>
     <div class="navbar-menu" v-if="user">
       <div class="navbar-end">
-        <router-link to="#" class="has-text-white navbar-item">
+        <router-link :to="`/user/${user._id}`" class="has-text-white navbar-item">
           Hola, {{ user.name }}!
         </router-link>
         <router-link to="/add-Community" class="has-text-white navbar-item">

@@ -83,3 +83,18 @@ func UserLogin(ctx echo.Context) error {
 
 	return ctx.NoContent(http.StatusUnauthorized)
 }
+
+// UserGetOne ...
+func UserGetOne(ctx echo.Context) error {
+	user := models.User{}
+
+	log.Print(ctx.Param("id"))
+
+	Connect()
+
+	collectionUsers.FindId(bson.ObjectIdHex(ctx.Param("id"))).One(&user)
+
+	Disconect()
+
+	return ctx.JSON(http.StatusOK, user)
+}
