@@ -23,8 +23,10 @@ func InitRoutes(server *echo.Echo) {
 	// exonsunity routes public
 	server.GET("/api/community/get/:id", actions.CommunityGetOne)
 	server.GET("/api/community/get/all", actions.CommunityGetAll)
+	server.GET("api/community/get/all/user/:id", actions.CommunityGetAllUser)
 
 	// User routes public
+	server.GET("/api/user/:id", actions.UserGetOne)
 	server.POST("/api/user/add", actions.UserAdd)
 	server.POST("/api/user/login", actions.UserLogin)
 }
