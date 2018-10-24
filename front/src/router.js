@@ -6,10 +6,10 @@ import UpdateCommunity from './views/UpdateCommunity.vue'
 import Community from './views/Community.vue'
 import UserSignUp from './views/UserSignUp.vue'
 import UserLogin from './views/UserLogin.vue'
+import Profile from './views/Profile.vue'
 
 Vue.use(Router)
     
-
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -43,6 +43,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: UserLogin
+    },
+    {
+      path: '/user/:id',
+      name: 'user profile',
+      component: Profile
     }
   ]
 })
