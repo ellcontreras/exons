@@ -10,11 +10,15 @@ import (
 
 // User ...
 type User struct {
-	ID       bson.ObjectId `json:"_id" bson:"_id,omitempty"`
-	Name     string        `json:"name"`
-	Username string        `json:"username"`
-	Email    string        `json:"email"`
-	Password string        `json:"password"`
+	ID          bson.ObjectId `json:"_id" bson:"_id,omitempty"`
+	Name        string        `json:"name"`
+	Username    string        `json:"username"`
+	Email       string        `json:"email"`
+	Password    string        `json:"password"`
+	Github      string        `json:"github"`
+	Facebook    string        `json:"facebook"`
+	Twitter     string        `json:"twitter"`
+	Description string        `json:"description"`
 }
 
 // BindWithContext ...
